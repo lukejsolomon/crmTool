@@ -1,0 +1,40 @@
+body{
+
+	font-family: 'Source Code Pro', monospace;	
+}
+
+
+
+	body{
+		color: black;
+		background-color: #031a3a;
+	}
+
+
+	#total-orders{
+		color: black;
+		background-color: #062557;
+	}
+
+
+	#orders-delivered{
+		background-color: #149c10;
+	}
+
+	#orders-pending{
+		background-color: #cf2323;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+	
+		padding: 10px;
+	  }
+	  .gridItem {
+		background-color: rgba(255, 255, 255, 0.8);
+		border: 1px solid rgba(0, 0, 0, 0.8);
+
+
+		text-align: left;
+	  }

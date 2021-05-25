@@ -1,0 +1,61 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+<br>
+<div class="row">
+	<div class="col-md-7">
+		<hr>
+		<div class="card card-body">
+
+
+			<h5>Products to be PICKED</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Location</th>
+					<th>Product</th>
+
+					<!-- <th>Customer</th> -->
+					<!-- <th>Date Orderd</th> -->
+					<th style="color: red;">Status</th>
+					<th>Update</th>
+				</tr>
+				{% for order in pending %}
+					<tr>
+						<td>{{order.product.location}}</td>
+						<td>{{order.product.name}}</td>
+
+						<!-- <td>{{order.customer}}</td> -->
+						<!-- <td>{{order.date_created}}</td> -->
+						<td style="color: red;">{{order.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'updateOrder' order.id %}">Update</a></td>
+					</tr>
+				{% endfor %}
+				<td><a class="btn btn-sm btn-info" href="{% url 'shippingOrders' %}">Ship Orders</a></td>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-7">
+		<h5>Shipped Orders</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for order in shipped %}
+					<tr>
+						<td>{{order.product}}</td>
+						<td>{{order.date_created}}</td>
+						<td>{{order.status}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
